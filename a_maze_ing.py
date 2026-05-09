@@ -1,9 +1,13 @@
 import sys
+
+from MazeRenderer import InteractiveRenderer
 from config.parser import parse_config, ConfigError
 from pydantic import ValidationError
 from maze.grid import Grid
 from MazeGenerator.MazeGenerator import MazeGenerator
 from MazeSolver.MazeSolver import MazeSolver
+from MazeWriter import MazeWriter
+from MazeRenderer import InteractiveRenderer
 
 def main():
     """Main entry point of the maze explorer. We check if config.txt is passed as arguement"""
@@ -33,7 +37,18 @@ def main():
         #--- Solve Maze to get Path ---#
         solver: MazeSolver = MazeSolver(grid, config.entry, config.exit)
         solution_path: str = solver.solve() or ""
-    except
+
+        #--- Write maze to output file ---#
+        writer: MazeWriter = MazeWriter(grid, config)
+        writer.write(solution_path)
+
+        #--- Launching Interactive maze ---#
+        renderer = InteractiveRenderer(grid, config, solver)
+        renderer.interactive_loop()
+
+    except Exception as e:
+        print(f"Error during maze generation: {e}")
+        sys.exit(1)
     
 if __name__ == "__main__":
     main()

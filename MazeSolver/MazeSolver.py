@@ -56,7 +56,7 @@ class MazeSolver:
                 if (nx, ny) not in visited:
                     visited.add((nx, ny))
                     queue.append(((nx, ny), path + direction))
-    return None
+        return None
     
     def is_solvable(self) -> bool:
         """ Check if maze has a solution.
