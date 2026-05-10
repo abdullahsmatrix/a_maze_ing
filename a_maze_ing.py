@@ -5,7 +5,7 @@ from MazeRenderer import InteractiveRenderer
 from config.parser import parse_config, ConfigError
 from mazegen.grid import Grid
 from mazegen.MazeGenerator import MazeGenerator
-from MazeSolver import MazeSolver
+from mazegen.MazeSolver import MazeSolver
 from MazeWriter import MazeWriter
 from MazeRenderer import InteractiveRenderer
 

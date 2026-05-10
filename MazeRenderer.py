@@ -4,7 +4,7 @@ import os
 from typing import Dict, Tuple
 
 from mazegen.grid import Grid
-from MazeSolver import MazeSolver
+from mazegen.MazeSolver import MazeSolver
 from config.config import Config
 
 
