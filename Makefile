@@ -14,10 +14,9 @@ help:
 
 # Install dependencies
 install:
-	@echo "Installing dependencies..."
-	pip install --upgrade pip
-	pip install flake8 mypy
-	pipx install poetry
+	@echo "Installing dependencies with Poetry"
+	pip install poetry
+	poetry install
 
 # Run interactive maze explorer
 run:
@@ -43,8 +42,8 @@ clean:
 # Linting with flake8 and mypy
 lint:
 	@echo "Running linting checks..."
-	flake8 .
-	mypy . --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs
+	poetry run flake8 .
+	poetry run mypy . --warn-return-any --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs --check-untyped-defs
 	@echo "Linting complete."
 
 # Full workflow: install, lint, and run

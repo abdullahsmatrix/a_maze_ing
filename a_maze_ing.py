@@ -1,11 +1,11 @@
 import sys
+from pydantic import ValidationError
 
 from MazeRenderer import InteractiveRenderer
 from config.parser import parse_config, ConfigError
-from pydantic import ValidationError
-from maze.grid import Grid
+from MazeGenerator.grid import Grid
 from MazeGenerator.MazeGenerator import MazeGenerator
-from MazeSolver.MazeSolver import MazeSolver
+from MazeSolver import MazeSolver
 from MazeWriter import MazeWriter
 from MazeRenderer import InteractiveRenderer
 

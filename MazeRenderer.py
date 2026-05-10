@@ -3,8 +3,8 @@
 import os
 from typing import Dict, Tuple
 
-from maze.grid import Grid
-from MazeSolver.MazeSolver import MazeSolver
+from MazeGenerator.grid import Grid
+from MazeSolver import MazeSolver
 from config.config import Config
 
 
@@ -74,12 +74,7 @@ class InteractiveRenderer:
         "W": (-1, 0, "•"),
     }
 
-    def __init__(
-        self,
-        grid: Grid,
-        config: Config,
-        solver: MazeSolver,
-    ) -> None:
+    def __init__(self, grid: Grid, config: Config, solver: MazeSolver) -> None:
         """Initialize renderer."""
         self.grid = grid
         self.config = config
@@ -173,11 +168,7 @@ class InteractiveRenderer:
 
         print(line)
 
-    def render_middle_row(
-        self,
-        y: int,
-        visited_coords: Dict[Tuple[int, int], str],
-    ) -> None:
+    def render_middle_row(self, y: int, visited_coords: Dict[Tuple[int, int], str]) -> None:
         """Render cell content row."""
         parts = [self.colors.wall_color + "|" + self.colors.RESET]
 
@@ -224,13 +215,7 @@ class InteractiveRenderer:
     # CELL DISPLAY
     # ==========================================================
 
-    def get_cell_display(
-        self,
-        x: int,
-        y: int,
-        cell,
-        visited_coords: Dict[Tuple[int, int], str],
-    ) -> Tuple[str, str]:
+    def get_cell_display(self, x: int, y: int, cell, visited_coords: Dict[Tuple[int, int], str]) -> Tuple[str, str]:
         """Return cell content and color."""
         if (x, y) == self.config.entry:
             return " ◉ ", self.colors.entry_color
@@ -382,3 +367,4 @@ class InteractiveRenderer:
     def show_palette(self) -> None:
         """Display color palette."""
         self.colors.display_palette()
+        input("Press Enter to continue...")

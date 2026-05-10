@@ -1,7 +1,7 @@
 from typing import Optional
 
-from maze.cell import Cell
-from maze.grid import Grid
+from MazeGenerator.cell import Cell
+from MazeGenerator.grid import Grid
 from config.config import Config
 
 class MazeWriter:
@@ -82,4 +82,4 @@ class MazeWriter:
         if cell.walls["W"]:
             value = value | (1 << 3)
 
-        return hex(value)
+        return format(value, "X")

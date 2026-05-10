@@ -34,7 +34,7 @@ class Config(BaseModel):
         
         if self.width < 0 or self.height < 0:
             raise ValueError("Width and height must be positive")
-        if self.width < 8 or self.height < 8:
-            raise ValueError("Too small for maze! Minimum 8x8")
+        if self.width < 7 or self.height < 7:
+            raise ValueError("Too small for maze! Minimum 7x7")
 
         return self
