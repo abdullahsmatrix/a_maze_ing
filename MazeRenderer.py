@@ -3,7 +3,7 @@
 import os
 from typing import Dict, Tuple
 
-from MazeGenerator.grid import Grid
+from mazegen.grid import Grid
 from MazeSolver import MazeSolver
 from config.config import Config
 
@@ -262,8 +262,6 @@ class InteractiveRenderer:
         """Generate a new maze."""
         from MazeGenerator.MazeGenerator import MazeGenerator
 
-        print("\nRegenerating maze...")
-
         new_grid = Grid(
             self.config.width,
             self.config.height,
@@ -283,9 +281,6 @@ class InteractiveRenderer:
         self.solution_path = self.solver.solve() or ""
         self.show_path = False
 
-        print("✓ New maze generated!")
-
-        input("Press Enter to continue...")
 
     def toggle_path(self) -> None:
         """Toggle solution path visibility."""

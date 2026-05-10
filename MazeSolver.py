@@ -1,8 +1,8 @@
 from collections import deque
 from typing import Optional
 
-from MazeGenerator.grid import Grid
-from MazeGenerator.cell import Cell
+from mazegen.grid import Grid
+from mazegen.cell import Cell
 
 
 class MazeSolver:

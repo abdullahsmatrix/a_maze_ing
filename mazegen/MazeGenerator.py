@@ -1,7 +1,8 @@
 import random
 from typing import Optional
-from MazeGenerator.grid import Grid
-from MazeGenerator.cell import Cell
+
+from mazegen.grid import Grid
+from mazegen.cell import Cell
 
 class MazeGenerator:
     """Generates a Maze using depth-first search algorithm"""

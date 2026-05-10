@@ -1,7 +1,7 @@
 from typing import Optional
 
-from MazeGenerator.cell import Cell
-from MazeGenerator.grid import Grid
+from mazegen.cell import Cell
+from mazegen.grid import Grid
 from config.config import Config
 
 class MazeWriter:

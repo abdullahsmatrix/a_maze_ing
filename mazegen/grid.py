@@ -1,4 +1,4 @@
-from MazeGenerator.cell import Cell
+from mazegen.cell import Cell
 
 class Grid:
     def __init__(self, width: int, height: int) -> None:

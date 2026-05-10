@@ -3,8 +3,8 @@ from pydantic import ValidationError
 
 from MazeRenderer import InteractiveRenderer
 from config.parser import parse_config, ConfigError
-from MazeGenerator.grid import Grid
-from MazeGenerator.MazeGenerator import MazeGenerator
+from mazegen.grid import Grid
+from mazegen.MazeGenerator import MazeGenerator
 from MazeSolver import MazeSolver
 from MazeWriter import MazeWriter
 from MazeRenderer import InteractiveRenderer
