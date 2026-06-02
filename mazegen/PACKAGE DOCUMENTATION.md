@@ -215,11 +215,3 @@ The maze includes a decorative "42 pattern" (blocked cells) in the center of gen
 ## Version
 
 Current version: 1.0.0
-
-## License
-
-See LICENSE file for details.
-
-## Contributing
-
-For issues or contributions, please contact the maintainers.
