@@ -9,7 +9,7 @@ from MazeWriter import MazeWriter
 from MazeRenderer import InteractiveRenderer
 
 
-def main():
+def main() -> None:
     """Main entry point of the maze explorer.
 
     Check if config.txt is passed as argument.

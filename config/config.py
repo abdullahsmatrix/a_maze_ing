@@ -24,7 +24,7 @@ class Config(BaseModel):
     seed: Optional[int] = None
 
     @model_validator(mode='after')
-    def validate_datas(self):
+    def validate_datas(self) -> "Config":
         """Validate configuration data."""
         x, y = self.entry
         if x >= self.width and y >= self.height:

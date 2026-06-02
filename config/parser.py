@@ -6,7 +6,7 @@ class ConfigError(Exception):
     pass
 
 
-def parse_config(config_path: str):
+def parse_config(config_path: str) -> Config:
     """Parse configuration from file."""
     raw_data: dict = {}
     try:

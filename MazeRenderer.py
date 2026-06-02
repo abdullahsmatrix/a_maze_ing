@@ -3,6 +3,7 @@
 from typing import Dict, Tuple
 
 from mazegen.grid import Grid
+from mazegen.cell import Cell
 from mazegen.MazeSolver import MazeSolver
 from config.config import Config
 
@@ -120,7 +121,7 @@ class InteractiveRenderer:
 
     def build_visited_coordinates(self) -> Dict[Tuple[int, int], str]:
         """Convert solution path into coordinate -> arrow map."""
-        visited = {}
+        visited: dict[tuple[int, int], str] = {}
 
         if not self.show_path or not self.solution_path:
             return visited
@@ -216,7 +217,7 @@ class InteractiveRenderer:
     # CELL DISPLAY
     # ==========================================================
 
-    def get_cell_display(self, x: int, y: int, cell,
+    def get_cell_display(self, x: int, y: int, cell: "Cell",
                          visited_coords:
                          Dict[Tuple[int, int], str]) -> Tuple[str,
                                                               str]:

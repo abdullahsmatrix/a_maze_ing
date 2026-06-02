@@ -26,7 +26,7 @@ class MazeGenerator:
     def dfs(self, current: Cell) -> None:
         """Depth First Search to carve passage."""
         current.visited = True
-        neighbors: dict[str, tuple] = self.grid.get_neighbors(current)
+        neighbors: dict[str, Cell] = self.grid.get_neighbors(current)
         directions: list[str] = list(neighbors.keys())
         random.shuffle(directions)
 

@@ -8,10 +8,10 @@ class Grid:
         """Initialize a grid."""
         self.width = width
         self.height = height
-        self.cells: list = []
+        self.cells: list[list[Cell]] = []
 
         for y in range(height):
-            row = []
+            row: list[Cell] = []
             for x in range(width):
                 row.append(Cell(x, y))
             self.cells.append(row)
@@ -20,11 +20,11 @@ class Grid:
         """Get a cell at coordinates."""
         return self.cells[y][x]
 
-    def get_neighbors(self, cell: Cell) -> dict:
+    def get_neighbors(self, cell: Cell) -> dict[str, Cell]:
         """Get neighboring cells."""
-        neighbors: dict = {}
+        neighbors: dict[str, Cell] = {}
 
-        directions: dict = {
+        directions: dict[str, tuple[int, int]] = {
             "N": (0, -1),
             "E": (1, 0),
             "S": (0, 1),
