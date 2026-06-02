@@ -1,9 +1,10 @@
 [project]
-name = "a_maze_ing"
-version = "0.1.0"
-description = "no_description for now"
+name = "mazegen"
+version = "1.0.0"
+description = "A maze generation and solving library with interactive explorer"
 authors = [
-    {name = "None"}
+    {name = "amamun"},
+    {name = "pbishnoi"}
 ]
 requires-python = ">=3.13"
 dependencies = [
@@ -11,7 +12,19 @@ dependencies = [
     "flake8 (>=7.3.0,<8.0.0)",
     "mypy (>=2.0.0,<3.0.0)"
 ]
-package-mode = false
+package-mode = true
+
+[tool.poetry]
+name = "mazegen"
+version = "1.0.0"
+description = "A reusable Python library for generating and solving perfect mazes"
+authors = [
+    "amamun",
+    "pbishnoi"
+]
+packages = [
+    { include = "mazegen" }
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

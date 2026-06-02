@@ -15,7 +15,7 @@ help:
 # Install dependencies
 install:
 	@echo "Installing dependencies with Poetry"
-	pip install poetry
+	@command -v poetry >/dev/null 2>&1 || pip install poetry
 	poetry install
 
 # Run interactive maze explorer

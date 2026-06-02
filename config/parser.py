@@ -1,11 +1,13 @@
 from config.config import Config
-from typing import Dict, Optional
+
 
 class ConfigError(Exception):
-    """Custom Exception for configuration errors"""
+    """Custom Exception for configuration errors."""
     pass
 
+
 def parse_config(config_path: str):
+    """Parse configuration from file."""
     raw_data: dict = {}
     try:
         with open(config_path, 'r') as f:
@@ -15,26 +17,19 @@ def parse_config(config_path: str):
                 if not line or line.startswith("#"):
                     continue
                 if "=" not in line:
-                    raise ConfigError(f"Line: {line_number}, '{line}' invalid format")
+                    msg = f"Line: {line_number}, '{line}' invalid format"
+                    raise ConfigError(msg)
                 key, value = line.split("=", 1)
                 raw_data[key.strip()] = value.strip()
     except FileNotFoundError:
         raise ConfigError(f"Config file not found: {config_path}")
-    
-    
-    #--- Validate Required Keys ---#
-    required_keys: list[str] = ["WIDTH", "HEIGHT", "ENTRY", "EXIT", "OUTPUT_FILE", "PERFECT"]
+
+    # Validate Required Keys
+    required_keys: list[str] = ["WIDTH", "HEIGHT", "ENTRY", "EXIT",
+                                "OUTPUT_FILE", "PERFECT"]
 
     for key in required_keys:
         if key.lower() not in raw_data:
             raise ConfigError(f"Missing required key: {key}")
-    
+
     return Config(**raw_data)
-
-
-    
-
-
-
-
-

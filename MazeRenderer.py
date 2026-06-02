@@ -1,6 +1,5 @@
 """Interactive maze display with user controls."""
 
-import os
 from typing import Dict, Tuple
 
 from mazegen.grid import Grid
@@ -168,7 +167,9 @@ class InteractiveRenderer:
 
         print(line)
 
-    def render_middle_row(self, y: int, visited_coords: Dict[Tuple[int, int], str]) -> None:
+    def render_middle_row(self, y: int,
+                          visited_coords:
+                          Dict[Tuple[int, int], str]) -> None:
         """Render cell content row."""
         parts = [self.colors.wall_color + "|" + self.colors.RESET]
 
@@ -215,7 +216,10 @@ class InteractiveRenderer:
     # CELL DISPLAY
     # ==========================================================
 
-    def get_cell_display(self, x: int, y: int, cell, visited_coords: Dict[Tuple[int, int], str]) -> Tuple[str, str]:
+    def get_cell_display(self, x: int, y: int, cell,
+                         visited_coords:
+                         Dict[Tuple[int, int], str]) -> Tuple[str,
+                                                              str]:
         """Return cell content and color."""
         if (x, y) == self.config.entry:
             return " ◉ ", self.colors.entry_color
@@ -260,7 +264,7 @@ class InteractiveRenderer:
 
     def regenerate_maze(self) -> None:
         """Generate a new maze."""
-        from MazeGenerator.MazeGenerator import MazeGenerator
+        from mazegen.MazeGenerator import MazeGenerator
 
         new_grid = Grid(
             self.config.width,
@@ -280,7 +284,6 @@ class InteractiveRenderer:
 
         self.solution_path = self.solver.solve() or ""
         self.show_path = False
-
 
     def toggle_path(self) -> None:
         """Toggle solution path visibility."""
